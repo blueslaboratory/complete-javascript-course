@@ -1,0 +1,24 @@
+24/0/2025
+
+Vamos a utilizar Google Chrome
+
+CTRL + SHIFT + J: Abre Herramientas Avanzadas
+CTRL + SHIFT + I: Más Herramientas --> Herramientas para Desarrolladores
+
+JavaScript is a: high-level, object-oriented, multi-paradigm programming language
+
+HTML: nouns 
+CSS: adjectives 
+JS: verbs
+
+Este curso va sobre Front-end applications, no vamos a ver Node.js (backend)
+ES6: ECMAScript6 --> JS6
+
+camelCase is the standard
+
+JavaScript has dynamic typing: 
+We do not have to manually define the data type of
+the value stored in a variable. Instead, data types are determined automatically
+
+Comments VSCode: CTRL+K, CTRL+C
+Uncomment VSCode: CTRL+K, CTRL+U
