@@ -1,4 +1,4 @@
-24/0/2025
+24/02/2025
 
 Vamos a utilizar Google Chrome
 
@@ -22,3 +22,8 @@ the value stored in a variable. Instead, data types are determined automatically
 
 Comments VSCode: CTRL+K, CTRL+C
 Uncomment VSCode: CTRL+K, CTRL+U
+
+
+
+25/02/2025
+Avoid using the loose equality operator == as much as you can
