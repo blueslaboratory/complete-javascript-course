@@ -22,8 +22,26 @@ the value stored in a variable. Instead, data types are determined automatically
 
 Comments VSCode: CTRL+K, CTRL+C
 Uncomment VSCode: CTRL+K, CTRL+U
+Keyboard shortcuts VSCode: CTRL+K, CTRL+S
 
 
 
 25/02/2025
+
+Operator Precedence:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
+
 Avoid using the loose equality operator == as much as you can
+
+
+
+26/02/2025
+By default always use const
+
+Strict Mode:
+- 'use strict';
+- it has to be at the beginning of the code
+- forbids us to do certain things 
+- creates visible errors
+
+Arrow Functions are only available in ECMAScript 6 - 2015
