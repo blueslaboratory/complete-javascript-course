@@ -78,3 +78,10 @@ Shows how to use the browser debugger --> 8:00
 CTRL + SHIFT + J
 save word:
 debugger;
+
+
+66. Basic HTML Structure and Elements
+Extension: Auto Rename Tag & Auto Close Tag
+
+67. Attributes, Classes and IDs
+CSS - kebab case or dash case is the convention: course-image

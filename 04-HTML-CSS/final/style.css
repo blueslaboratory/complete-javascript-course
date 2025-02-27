@@ -1,7 +1,15 @@
+/* 27/02/2025 */
+/* 68. Basic Styling with CSS */
+/* 69. Introduction to the CSS Box Model */
+
 * {
   margin: 0;
   padding: 0;
+  
   box-sizing: border-box;
+  /* we are always going to use border-box */
+  /* With box-sizing: border-box;, width and height include the padding and border, making layout calculations much easier. */
+  /* By default (box-sizing: content-box;), an element's width and height only include the content, but not padding or borders. */
 }
 
 body {
@@ -11,6 +19,7 @@ body {
   padding: 50px;
 }
 
+/* overrides the body selectors */
 h1 {
   font-size: 35px;
   margin-bottom: 25px;
@@ -37,6 +46,7 @@ p {
   margin-top: 30px;
 }
 
+/* this rule applies to both selectors */
 input,
 button {
   padding: 10px;
@@ -44,7 +54,7 @@ button {
 }
 
 a {
-  background-color: yellowgreen;
+  background-color: yellow;
 }
 
 #course-image {
