@@ -371,7 +371,7 @@ const blueslaboratory = [
 ];
 
 // objects: {}
-// - curly braces 
+// - curly braces
 // - unstructured data
 const b = {
     firstName: "Blue's",
@@ -703,6 +703,7 @@ HINT: Call calcTip in the loop and use the push method to add values to the tips
 
 GOOD LUCK 😀
 */
+/*
 'use strict';
 
 const calcTip = function (bill) {
@@ -737,3 +738,4 @@ const calcAverage = function (arr) {
 
 console.log(calcAverage(totals));
 console.log(calcAverage(tips));
+*/

@@ -45,3 +45,36 @@ Strict Mode:
 - creates visible errors
 
 Arrow Functions are only available in ECMAScript 6 - 2015
+
+
+
+27/02/2025
+
+55. Setting up Prettier and VS Code
+
+Install: Prettier - Code Formatter (@ext:esbenp.prettier-vscode) (I AM NOT GOING TO USE PRETTIER)
+Snippets: File -> Preferences -> Configure Snippets -> New Global Snippets File
+
+Extension: TODO Highlight: NEW, FIXME, IMPORTANT, BUG, TODO
+File --> Preferences --> Settings: Open Settings (JSON)
+
+Extension: Live Server
+
+
+58. How to Think Like a Developer: Become a Problem Solver!
+
+Step 1:
+Make sure you 100% understand the problem. Ask the right questions, get a clear view of the problem
+Step 2:
+Divide an conquer: break big problems into smaller sub-problems
+Step 3:
+Don't be afraid to do as much research as you have to
+Step 4:
+For big problems: Write pseudo-code before writing the actual code
+
+
+60. Debugging (Fixing Errors)
+Shows how to use the browser debugger --> 8:00
+CTRL + SHIFT + J
+save word:
+debugger;
