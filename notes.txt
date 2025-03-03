@@ -83,5 +83,22 @@ debugger;
 66. Basic HTML Structure and Elements
 Extension: Auto Rename Tag & Auto Close Tag
 
+
 67. Attributes, Classes and IDs
 CSS - kebab case or dash case is the convention: course-image
+
+
+
+28/02/2025
+
+82. Working With Classes
+When you work with lots of properties, aggregate them to a CSS class and then show/remove them with:
+class = document.querySelector('.class-selector');
+class.classList.remove('name-of-the-CSS-class');
+
+
+
+03/03/2025
+
+84. PROJECT #3: Pig Game
+Flowchart diagrams --> diagrams.net

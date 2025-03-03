@@ -1,3 +1,10 @@
+/* 
+03/03/2025 
+84. PROJECT #3: Pig Game
+...
+88. Resetting the Game
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
@@ -164,4 +171,9 @@ main {
 .player--winner .name {
   font-weight: 700;
   color: #c7365f;
+}
+
+/* hidden class */
+.hidden {
+  display: none;
 }
