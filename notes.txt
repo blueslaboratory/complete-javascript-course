@@ -102,3 +102,10 @@ class.classList.remove('name-of-the-CSS-class');
 
 84. PROJECT #3: Pig Game
 Flowchart diagrams --> diagrams.net
+
+
+
+06/03/2025
+
+// Defines the firstName as a window object: another reason not to use var
+var firstName = 'Matilda;'
