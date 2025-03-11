@@ -107,5 +107,27 @@ Flowchart diagrams --> diagrams.net
 
 06/03/2025
 
-// Defines the firstName as a window object: another reason not to use var
+// var defines the firstName as a window object: another reason not to use var
 var firstName = 'Matilda;'
+
+
+
+10/03/2025
+106. Destructuring Arrays
+Destructuring: receive 2 return values from a function:
+
+WARNING: The spread operator (...) was introduced in ES6 (2015)
+
+
+115. Looping Arrays: The for-of Loop
+WARNING: The for-of loop was introduced in ES6
+
+
+
+11/03/2025
+128. Working With Strings - Part 3
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+
+Converting a number into a string:
+const str = number + '';
+const str = String();
