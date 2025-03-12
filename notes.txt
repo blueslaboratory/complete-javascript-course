@@ -131,3 +131,25 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Converting a number into a string:
 const str = number + '';
 const str = String();
+
+
+
+12/03/2025
+135. First-Class and Higher-Order Functions
+
+First class Functions:
+- JS treats functions as first-class citizens:
+     --> They can be assigned to variables
+     --> Be passed as arguments to other functions
+     --> Be returned from other functions
+     --> Be stored in arrays or objects
+- This means that functions are simply values, just like numbers, strings or objects
+- Functions are just another "type" of object
+
+Higher-order functions:
+- A function that receives another function as an argument, that returns a new function, or both
+- This is only possible because of first-class functions
+
+
+136. Functions Accepting Callback Functions
+Important lecture because JS uses Callback functions all the time
