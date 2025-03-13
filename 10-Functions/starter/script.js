@@ -229,7 +229,7 @@ document.body.addEventListener('click', high5);
 
 /////////////////////////////////////////////////////
 // 137. Functions Returning Functions
-*/
+
 console.log('\n137. Functions Returning Functions');
 
 const greet = function(greeting) {
@@ -248,3 +248,394 @@ greet('Hello')('Blue');
 const greetArrow = (greeting) => nameArrow => console.log(`${greeting} ${nameArrow}`);
 
 greetArrow('Hi')('Blue spArrow');
+
+
+
+/////////////////////////////////////////////////////
+// 138. The call and apply Methods
+
+console.log('\n138. The call and apply Methods');
+
+const lufthansa = {
+    airline: 'Lufthansa',
+    iataCode: 'LH',
+    bookings: [],
+    // Older syntax
+    // book: function(){}
+    // Newer syntax
+    book(flightNum, name) {
+        console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+        this.bookings.push({
+            flight: `${this.iataCode}${flightNum}`, 
+            name
+        })
+    },
+};
+
+lufthansa.book(233, 'Blue\'s Laboratory');
+lufthansa.book(666, 'Agent Smith');
+console.log(lufthansa);
+
+const eurowings = {
+    airline: 'Eurowings',
+    iataCode: 'EW',
+    bookings: [],
+};
+
+
+console.log('\nCall method: setting the this keyword');
+
+const book = lufthansa.book;
+
+// This function here is a regular function call and in a regular function call the this keyword points to undefined, at least in strict mode
+// The book function is now a copy of the lufthansa.book method, it's not a method anymore, it's a regular function call
+// that is why the this keyword inside of it will point to undefined
+// The this keyword depends on how the function is actually called
+// Q: How do we tell JS that we want to create a booking?
+// A: If we want to book lufthansa, the this keyword should point to lufthansa, for eurowings, the this keyword should point to eurowings
+//    There are 3 functions to do this: call, apply and bind.
+
+// DOES NOT WORK
+// book(23, 'Sarah Williams');
+
+// WORKS
+// This call method has the 1st parameter, the this keyword, pointing to eurowings
+// The rest of the arguments are the parameters of the book original function
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+// We can do the same for lufthansa:
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+
+const swiss = {
+    airline: 'Swiss Air Lines',
+    iataCode: 'LX',
+    bookings: []
+}
+
+book.call(swiss, 888, 'Mary Cooper');
+console.log(swiss);
+
+
+console.log('\nApply method: ');
+// The apply method does basically the same as the call method, the main difference is that it does not receive
+// a list of arguments after the this keyword, instead it is going to take an array of the arguments
+
+const flightData = [987, 'Sheldon Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+// In modern JS, ES6, the spread operator is used:
+book.call(swiss, ...flightData);
+console.log(swiss);
+
+
+
+/////////////////////////////////////////////////////
+// 139. The bind Method
+
+console.log('\n139. The bind method');
+// The bind method, just like the call method also allows us to set the this keyword for any function call,
+// the difference is that bind does not immediately call the function, instead it returns a new function where the 
+// this keyword is bound 
+
+const lufthansa = {
+    airline: 'Lufthansa',
+    iataCode: 'LH',
+    bookings: [],
+    // Older syntax
+    // book: function(){}
+    // Newer syntax
+    book(flightNum, name) {
+        console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+        this.bookings.push({
+            flight: `${this.iataCode}${flightNum}`, 
+            name
+        })
+    },
+};
+
+lufthansa.book(233, 'Blue\'s Laboratory');
+lufthansa.book(666, 'Agent Smith');
+console.log(lufthansa);
+
+const eurowings = {
+    airline: 'Eurowings',
+    iataCode: 'EW',
+    bookings: [],
+};
+
+const swiss = {
+    airline: 'Swiss Air Lines',
+    iataCode: 'LX',
+    bookings: []
+}
+
+
+console.log('\nBind method');
+
+const book = lufthansa.book;
+
+// Call method: eurowings is the this keyword
+book.call(eurowings, 23, 'Sarah Williams');
+book.bind(eurowings);
+
+// Bind method: eurowings, lufthansa and swiss are the this keyword here
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steven Williams');
+console.log(eurowings);
+
+
+console.log('\nBinding with more than \'this\'');
+// But with bind we can even bind and pass more arguments than the this keyword
+// This is common pattern called: partial application
+// Partial application: a part of the arguments of the original function are already applied, already set
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Pepito Gonzalez');
+bookEW23('Juanito Perez');
+console.log(eurowings);
+
+
+console.log('\nBinding With Event Listeners');
+lufthansa.planes = 300;
+lufthansa.buyPlane = function(){
+    console.log(this);
+
+    this.planes++
+    console.log(this.planes);
+}
+
+// The this keyword points to the handler to which it is attached the buy button: <button class="buy">Buy new plane 🛩</button>
+// Proof that the this keyword is really set up dynamically
+// document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane);
+
+// If we call the buyPlane() function from lufthansa, the this keyword will point to lufthansa, 
+lufthansa.buyPlane()
+
+// We need to manually define the this keyword: we will use bind
+// REMEMBER: bind assigns the this keyword by parameter
+document
+    .querySelector('.buy')
+    .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+
+console.log('\nPartial application: presetting parameters');
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.10, 200));
+
+// Let's say there is a function we use all the time, so let's create a function for that:
+// Because there is no this keyword here, we set it to: null
+// REMEMBER: the order of the arguments is important
+const addVAT23 = addTax.bind(null, 0.23);
+
+// This is essentially: 
+// const addVAT23 = value => value + value * 0.23
+
+console.log(addVAT23(100));
+console.log(addVAT23(23));
+
+
+console.log('\nChallenge (solution):');
+const addTaxRate = function(rate){
+    return function(value){
+        return value + value * rate;
+    }
+}
+
+console.log(addTaxRate(0.23)(100));
+console.log(addTaxRate(0.23)(23));
+
+const addVAT_addTaxRate = addTaxRate(0.23);
+console.log(addVAT_addTaxRate(100));
+console.log(addVAT_addTaxRate(23));
+
+
+
+/////////////////////////////////////////////////////
+// 140. CHALLENGE #1
+
+console.log('\n140. CHALLENGE #1');
+
+/* 
+Let's build a simple poll app!
+
+A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. 
+This data is stored in the starter object below.
+
+Here are your tasks:
+
+1. Create a method called 'registerNewAnswer' on the 'poll' object. The method does 2 things:
+  1.1. Display a prompt window for the user to input the number of the selected option. The prompt should look like this:
+       What is your favourite programming language?
+        0: JavaScript
+        1: Python
+        2: Rust
+        3: C++
+        (Write option number)
+  
+  1.2. Based on the input number, update the answers array. For example, if the option is 3, increase the value 
+       AT POSITION 3 of the array by 1. Make sure to check if the input is a number and if the number makes sense 
+       (e.g answer 52 wouldn't make sense, right?)
+
+2. Call this method whenever the user clicks the "Answer poll" button.
+3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), 
+   which can be either 'string' or 'array'. If type is 'array', simply display the results array as it is, using console.log(). 
+   This should be the default option. If type is 'string', display a string like "Poll results are 13, 2, 4, 1". 
+4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
+
+HINT: Use many of the tools you learned about in this and the last section 😉
+
+BONUS: Use the 'displayResults' method to display the 2 arrays in the test data. Use both the 'array' and the 'string' option. 
+       Do NOT put the arrays in the poll object! So what shoud the this keyword look like in this situation?
+
+BONUS TEST DATA 1: [5, 2, 3]
+BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
+
+GOOD LUCK 😀
+*/
+
+/*
+const poll = {
+    question: 'What is your favourite programming language?',
+    options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+    // This generates [0, 0, 0, 0]. More in the next section 😃
+    answers: new Array(4).fill(0),
+
+    registerNewAnswer: function registerNewAnswer(){
+        let userAnswer = -1;
+        while(userAnswer <0 || userAnswer >3 || isNaN(userAnswer)){
+            // Number() siempre devuelve un Number, hasta para NaN
+            // CAREFUL: prompt --> cancel devuelve un 0
+            userAnswer = Number(prompt(
+                `${this.question}\n\n${this.options.join('\n')})`
+            ));
+
+            console.log(userAnswer);
+            console.log(typeof(userAnswer));
+
+            if (userAnswer <0 || userAnswer >3 || isNaN(userAnswer)){
+                alert('Please introduce a valid number (0-3)');
+            } else {
+                this.answers[userAnswer]++;
+                console.log(this.answers);
+            }
+        }
+
+        // Short-circuiting: 
+        //   X) this.answers[answer]++; --> only gets executed if the previous conditions are true:
+        // typeof answer === 'number' &&
+        // answer < this.answers.length &&
+        // this.answers[answer]++;
+
+        this.displayResults();
+        // this.displayResults('string');
+    },
+
+    // por defecto es un array
+    displayResults: function displayResults(type = 'array'){
+        if (type === 'array') {
+            console.log(this.answers);
+        } else if (type === 'string') {
+            console.log(`Poll results are ${this.answers.join(', ')}`);
+        }
+    },
+};
+
+// this keyword in this case will point to the .poll element:
+// document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer);
+
+document
+    .querySelector('.poll')
+    // bindeamos a poll.registerNewAnswer() el objeto poll que sera aqui el objeto this
+    .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+
+// poll.displayResults()
+
+// BONUS
+console.log('\nBONUS: ');
+// call: this keyword is the 1st parameter, the object: { answers: [5, 2, 3] }
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+// este funciona porque por defecto es array:
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'array');
+*/
+
+
+
+/////////////////////////////////////////////////////
+// 141. Immediately Invoked Function Expressions (IIFE)
+/*
+console.log('\n141. Immediately Invoked Function Expressions (IIFE)');
+// Sometimes in JS we need a function that is executed once and then never again
+// We will need this technique later for async/await
+
+const runOnce = function(){
+    console.log('This will never run again');
+}
+runOnce();
+
+// It is done through parentheses:
+(function(){
+    console.log('This will never run again');
+})();
+
+console.log('\nIIFE with an arrow function:');
+(() => console.log('This will ALSO never run again'))();
+
+
+// Q: Why was this pattern invented?
+// A: Functions create scopes. And one scope does not have access to variables from an inner scope
+
+(function(){
+    console.log('This will never run again');
+    const isPrivate = 23;
+})();
+
+// We CANNOT access it like this:
+// console.log(isPrivate);
+
+{
+    const isPrivate = 33;
+    // var variables completely ignore the block
+    var notPrivate = 69;
+}
+
+// The outside cannot access isPrivate
+// console.log(isPrivate);
+console.log(notPrivate);
+
+
+
+/////////////////////////////////////////////////////
+// 142. Closures
+*/
+console.log('\n142. Closures');
+
+// Q: What is the hardest topic to understand in JS?
+// A (many people): Closures
+
+const secureBooking = function() {
+    let passengerCount = 0;
+
+    return function(){
+        passengerCount++;
+        console.log(`${passengerCount} passengers`);
+    }
+}
+
+// The booker function exists out here in the global scope/environment
+// The booker function will still have access to the values of secureBooking once the function secureBooking has finished
+const booker = secureBooking();
+
+// Q: How is it possible that the booker function has access to the passengerCount variable?
+//    Shouldn't it have exited memory once the function is executed, since the execution context is not on the call stack anymore?
+// A: Closure, it makes a function remember all the variables that existed at the function's birthplace.
+booker();
+booker();
+booker();

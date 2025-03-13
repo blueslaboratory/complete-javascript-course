@@ -153,3 +153,11 @@ Higher-order functions:
 
 136. Functions Accepting Callback Functions
 Important lecture because JS uses Callback functions all the time
+
+
+
+13/03/2025
+INTERESTING:
+138. The call and apply Methods
+139. The bind Method
+142. Closure
