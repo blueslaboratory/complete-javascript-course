@@ -7,12 +7,17 @@ Multi-Line comment
 /////////////////////////////////////////////////////
 // 28/02/2025
 // 72. PROJECT #1: Guess My Number!
+
+console.log('\n72. PROJECT #1: Guess My Number!');
 console.log(document.querySelector('.message').textContent);
 
 
 
 /////////////////////////////////////////////////////
 // 73. What's the DOM and DOM Manipulation
+
+console.log('\n73. What\'s the DOM and DOM Manipulation');
+
 // DOM (Document Object Model):
 // Structured Representation of HTML documents.
 // Allows JS to access HTML elements and styles to manipulate them.
@@ -25,6 +30,9 @@ console.log(document.querySelector('.message').textContent);
 
 /////////////////////////////////////////////////////
 // 74. Selecting and Manipulating Elements
+
+console.log('\n74. Selecting and Manipulating Elements');
+
 'use strict';
 
 console.log(document.querySelector('.message').textContent);
@@ -40,12 +48,14 @@ console.log(document.querySelector('.guess').value);
 
 
 /////////////////////////////////////////////////////
-*/
 // 75. Handling Click Events
 // 76. Implementing the Game Logic
 // 77. Manipulating CSS 
 // 78. CHALLENGE #1: Play the game again
 // 79. Implementing Highscores
+*/
+console.log('\n75-79. Handling Click Events - Implementing Highscores');
+
 'use strict';
 
 // 1 -> 20
@@ -140,6 +150,7 @@ document.querySelector('.check').addEventListener('click', function () {
 /////////////////////////////////////////////////////
 // 78. CHALLENGE #1: Play the game again
 
+console.log('\n78. CHALLENGE #1: Play the game again');
 /* 
 Implement a game rest functionality, so that the player can make a new guess! Here is how:
 

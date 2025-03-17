@@ -8,6 +8,8 @@ Multi-Line comment
 // 26/02/2025
 // 32. Activating Strict Mode
 
+console.log('\n32. Activating Strict Mode');
+
 // Strict Mode:
 // - 'use strict';
 // - it has to be at the beginning of the code
@@ -20,11 +22,11 @@ Multi-Line comment
 let hasDriversLicense = false;
 const passTest = true;
 
-// an 's' is missing:
-// if (passTest) hasDriverLicense = true;
+// an 's' is missing: Drivers
+if (passTest) hasDriverLicense = true;
 if (hasDriversLicense) console.log('I can drive :D');
 
-// reserved word: interface, if, private
+// reserved words: interface, if, private
 // const interface = 'Audio';
 // const if = 3;
 // const private = 532;
@@ -33,6 +35,9 @@ if (hasDriversLicense) console.log('I can drive :D');
 
 /////////////////////////////////////////////////////
 // 33. Functions
+
+console.log('\n33. Functions');
+
 // dry code: code that doesn't repeat itself
 function logger() {
     console.log('My name is Alex');
@@ -61,9 +66,12 @@ console.log(appleOrangeJuice);
 /////////////////////////////////////////////////////
 // 34. Function Declarations vs. Expressions
 
+console.log('\n34. Function Declarations vs. Expressions');
 
+console.log('\nFunction declaration: function()');
 // Function declaration:
 // - We can call them before they are defined
+
 const age1 = calcAge1(1991);
 
 function calcAge1(birthYear) {
@@ -71,13 +79,14 @@ function calcAge1(birthYear) {
 }
 
 
+console.log('\nFunction expression: let, const ... = function()');
 // Function expression:
 // - You assign to a variable an anonymous function
 // - Cannot be called b4 they are defined
 // console.log(calcAge2(1991));
 
 const calcAge2 = function (birthYear) {
-    return 2037 - birthYear;
+    return (2037 - birthYear);
 }
 
 const age2 = calcAge2(1991);
@@ -89,6 +98,8 @@ console.log(age1, age2);
 
 /////////////////////////////////////////////////////
 // 35. Arrow Functions (ECMAScript 6 - 2015)
+
+console.log('\n35. Arrow Functions (ECMAScript 6 - 2015)');
 // - Great for quick one-line functions (has no this keyword)
 
 const calcAge3 = birthYear => 2037 - birthYear;
@@ -111,6 +122,7 @@ console.log(yearsUntilRetirement(1955, 'Bob'));
 /////////////////////////////////////////////////////
 // 36. Functions Calling Other Functions
 
+console.log('\n36. Functions Calling Other Functions');
 function cutFruitPieces(fruit) {
     return fruit * 4;
 }
@@ -130,10 +142,13 @@ console.log(fruitProcessor(2, 3));
 
 /////////////////////////////////////////////////////
 // 37. Reviewing Functions
+
+console.log('\n37. Reviewing Functions');
+
 'use strict';
 
 const calcAge = function (birthYear) {
-    return 2037 - birthYear;
+    return 2025 - birthYear;
 }
 
 // Years until retirement
@@ -155,13 +170,14 @@ const yearsUntilRetirement = function (birthYear, firstname) {
 }
 
 console.log(yearsUntilRetirement(1993, 'Alex'));
-console.log(yearsUntilRetirement(1970, 'Mike'));
+console.log(yearsUntilRetirement(1955, 'Mike'));
 
 
 
 /////////////////////////////////////////////////////
-// Coding Challenge #1
+// 38. Coding Challenge #1
 
+console.log('\n38. Coding Challenge #1');
 /*
 Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new gymnastics discipline, which works differently.
 Each team competes 3 times, and then the average of the 3 scores is calculated (so one average score per team).
@@ -213,6 +229,8 @@ checkWinner(scoreDolphins, scoreKoalas);
 
 /////////////////////////////////////////////////////
 // 39. Introduction to Arrays
+
+console.log('\n39. Introduction to Arrays');
 // The 2 most important structures in JS are: arrays and objects
 'use strict';
 
@@ -235,7 +253,7 @@ console.log(friends[friends.length - 1]); // Peter
 // friends is const: an array is not a primitive value so it can me modified
 friends[2] = 'Jay';
 
-// we cannot do:
+// BUT we cannot do:
 // friends = ['Bob', 'Alice'];
 console.log(friends);
 
@@ -243,12 +261,15 @@ const firstName = "Blue's";
 const blueslaboratory = [firstName, 'Laboratory', 2027 - 1993, 'teacher', friends];
 console.log(blueslaboratory)
 
+
 // Exercise
+console.log('\nExercise');
+
 const calcAge = function (birthYear) {
     return 2037 - birthYear;
 }
 
-const years2 = [1990, 1967, 2002, 2010, 2018];
+const years2 = [1990, 1967, 2002, 2010, 2017];
 
 // starts with 0
 const age1 = calcAge(years2[0]);
@@ -257,7 +278,7 @@ const age2 = calcAge(years2[1]);
 const age3 = calcAge(years2[years2.length - 1]);
 console.log(age1, age2, age3);
 
-console.log(calcAge(years2));
+console.log(calcAge(years2)); // NaN
 console.log(years2 + 10);
 
 const ages = [
@@ -271,10 +292,16 @@ console.log(ages);
 
 /////////////////////////////////////////////////////
 // 40. Basic Array Operations (Methods)
+
+console.log('\n40. Basic Array Operations (Methods)');
+
 'use strict';
 
 const friends = ['Michael', 'Steven', 'Peter'];
+console.log('Original:');
+console.log(friends);
 
+console.log('\nAdd elements: push & unshift');
 // Add elements
 // pushing at the end:
 const newLength = friends.push('Jay');
@@ -285,15 +312,22 @@ console.log(newLength);
 friends.unshift('John');
 console.log(friends);
 
+
+console.log('\nRemove elements: pop & shift');
 // Remove elements
 // remove the last element: pop
-friends.pop();
-const popped = friends.pop();
+friends.pop(); // Jay
+const popped = friends.pop(); //Peter
 console.log(popped);
 console.log(friends);
 
 // remove the first element: shift
 friends.shift();
+console.log(friends);
+
+
+console.log('\nindexOf & includes:');
+
 console.log(friends);
 
 console.log(friends.indexOf('Steven'));
@@ -303,7 +337,7 @@ console.log(friends.includes('Steven'));
 console.log(friends.includes('Bob'));
 
 friends.push(23);
-console.log(friends.includes('23'));
+console.log('\nFriends includes string \'23\':', friends.includes('23'));
 
 if (friends.includes('Steven')) {
     console.log('You have a friend called Steven');
@@ -312,8 +346,9 @@ if (friends.includes('Steven')) {
 
 
 /////////////////////////////////////////////////////
-*/
-// Coding Challenge #2
+// 41. Coding Challenge #2
+
+console.log('\n41. Coding Challenge #2');
 
 /*
 Steven is still building his tip calculator, using the same rules as before: Tip 15% of the bill if the bill value is between 50 and 300, and if the value is different, the tip is 20%.
@@ -353,15 +388,18 @@ console.log(bills, tips, totals);
 
 
 /////////////////////////////////////////////////////
-
 // 42. Introduction to Objects
 // 43. Dot vs. Bracket Notation
+
+console.log('\n42. Introduction to Objects');
+console.log('43. Dot vs. Bracket Notation');
 
 'use strict';
 
 // arrays: []
 // - square brackets
 // - structured data
+console.log('\nArrays: []');
 const blueslaboratory = [
     "Blue's",
     "Laboratory",
@@ -369,30 +407,35 @@ const blueslaboratory = [
     "programmer",
     ["Nico", "Bea", "Iria"]
 ];
+console.log(blueslaboratory);
 
 // objects: {}
 // - curly braces
 // - unstructured data
-const b = {
+console.log('\nObjects: {}');
+const object = {
     firstName: "Blue's",
     lastName: "Laboratory",
     age: 2037 - 1993,
     job: "programmer",
     friends: ["Nico", "Bea", "Iria"]
 };
+console.log(object);
 
 // Get a property: dot notation
-console.log(b);
-console.log(b.lastName);
-console.log(b['lastName']);
+console.log('\nDot notation:');
+console.log(object);
+console.log(object.lastName);
+console.log(object['lastName']);
 
 // this works:
+console.log('\nNameKeys:');
 const nameKey = "Name";
-console.log(b['first' + nameKey]);
-console.log(b['last' + nameKey]);
+console.log(object['first' + nameKey]);
+console.log(object['last' + nameKey]);
 
 // this doesn't work:
-// console.log(b.'last' + nameKey);
+// console.log(object.'last' + nameKey);
 
 console.log('\nInterested in:')
 
@@ -400,33 +443,35 @@ const interestedIn = prompt("What do you want to know about Blue? \
                              Choose between firstName, lastName, age, job and friends");
 
 // this doesn't work: undefined
-console.log(b.interestedIn);
+console.log(object.interestedIn);
 
 // this works:
-if (b[interestedIn]) {
-    console.log(b[interestedIn]);
+if (object[interestedIn]) {
+    console.log(object[interestedIn]);
 } else {
     console.log("Wrong request! Choose between firstName, lastName, age, job and friends");
 }
 
-b.location = "Spain";
-b['twitter'] = "@blueslaboratory";
-console.log(b);
+object.location = "Spain";
+object['twitter'] = "@blueslaboratory";
+console.log(object);
 
 
 // Challenge: non hard-coded values: BLUE, 3 and NICO
 // BLUE has 3 friends and his best friend is called NICO
 
-const challenge = `${b.firstName} has ${b.friends.length} friends and his best friend is called ${b.friends[0]}.`;
+const challenge = `${object.firstName} has ${object.friends.length} friends and his best friend is called ${object.friends[0]}.`;
 console.log(challenge);
 
 
 
 /////////////////////////////////////////////////////
 // 44. Object Methods
+
+console.log('\n44. Object Methods');
 'use strict';
 
-const b = {
+const b_object = {
     firstName: "Blue's",
     lastName: "Laboratory",
     birthYear: 1993,
@@ -434,7 +479,7 @@ const b = {
     friends: ["Nico", "Bea", "Iria"],
     hasDriversLicense: true,
 
-    // Now calcAge is not a regular variable but a property of the b object
+    // Now calcAge is not a regular variable but a property of the object b_object
     // Any function that is attached to an object is called a method
     calcAge1: function (birthYear) {
         return 2037 - birthYear;
@@ -445,7 +490,7 @@ const b = {
     // }
 
     calcAge2: function () {
-        // this keyword points to the object preceding the '.', in this case: b
+        // this keyword points to the object preceding the '.', in this case: b_object
         console.log(this);
         return 2037 - this.birthYear;
     },
@@ -465,33 +510,38 @@ const calcAge1 = function (birthYear) {
 };
 
 // method:
-console.log(b.calcAge1(1993));
-console.log(b['calcAge1'](1993));
+console.log('\nMethod:');
+console.log(b_object.calcAge1(1993));
+console.log(b_object['calcAge1'](1993));
 
 // this:
-console.log(b.calcAge2());
+console.log('\nThis:');
+console.log(b_object.calcAge2());
 
 // retrieving a property you have calculated b4
-console.log(b.calcAge3());
-console.log(b.age);
+console.log('\nRetrieving a property:');
+console.log(b_object.calcAge3());
+console.log(b_object.age);
 
 // Challenge:
 // "Blueslaboratory is a 44 year old teacher, and he has a/no driver's license"
+console.log('\nChallenge:');
 let challenge;
 
-challenge = `${b.firstName} is a ${b.calcAge3} year old teacher, and he has ${b.hasDriversLicense ? "a" : "no"} driver's license`;
+challenge = `${b_object.firstName} is a ${b_object.calcAge3} year old teacher, and he has ${b_object.hasDriversLicense ? "a" : "no"} driver's license`;
 console.log(challenge);
 
-challenge = `${b.firstName} is a ${b.calcAge3()} year old ${b.job}, and he has ${b.hasDriversLicense ? "a" : "no"} driver's license`;
+challenge = `${b_object.firstName} is a ${b_object.calcAge3()} year old ${b_object.job}, and he has ${b_object.hasDriversLicense ? "a" : "no"} driver's license`;
 console.log(challenge);
 
-console.log(b.getSummary());
+console.log(b_object.getSummary());
 
 
 
 /////////////////////////////////////////////////////
-// Coding Challenge #3
+// 45. Coding Challenge #3
 
+console.log('45. Coding Challenge #3\n');
 /*
 Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
 
@@ -526,9 +576,9 @@ const john = {
     }
 };
 
-function calcBMI(mass, height) {
-    return (mass / (height * height));
-}
+// function calcBMI(mass, height) {
+//     return (mass / (height * height));
+// }
 
 // It is necessary to do this to set the values:
 mark.calcBMI();
@@ -537,9 +587,9 @@ john.calcBMI();
 console.log(mark.bmi, john.bmi);
 
 if (john.bmi > mark.bmi) {
-    console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`);
+    console.log(`${john.fullName}'s BMI (${john.bmi.toFixed(3)}) is higher than ${mark.fullName}'s (${mark.bmi.toPrecision(4)})!`);
 } else if (john.bmi < mark.bmi) {
-    console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`);
+    console.log(`${mark.fullName}'s BMI (${mark.bmi.toFixed(3)}) is higher than ${john.fullName}'s (${john.bmi.toPrecision(4)})!`);
 } else {
     console.log("Both BMI's are equal!");
 }
@@ -548,9 +598,12 @@ if (john.bmi > mark.bmi) {
 
 /////////////////////////////////////////////////////
 // 46. Iteration: The for Loop
+
+console.log('\n46. Iteration: The for Loop');
+
 'use strict';
 
-console.log('Lifting weights repetition X🏋️');
+console.log('Lifting weights repetition X 🏋️');
 
 // for loop keeps running while condition is TRUE
 for (let rep = 1; rep <= 10; rep++) {
@@ -561,14 +614,17 @@ for (let rep = 1; rep <= 10; rep++) {
 
 /////////////////////////////////////////////////////
 // 47. Looping Arrays, Breaking and Continuing
+
+console.log('\n47. Looping Arrays, Breaking and Continuing');
+
 'use strict';
 
-const blueslaboratory = [
+const blueslaboratory_Array = [
     "Blue's",
     "Laboratory",
     2037 - 1993,
     "programmer",
-    ["Nico", "Bea", "Iria"]
+    ["Nico", "Bea", "Iria"] // Object: array
 ];
 
 const types = [];
@@ -578,12 +634,12 @@ const types = [];
 // ...
 // console.log(jonas[4])
 
-for (let i = 0; i < blueslaboratory.length; i++) {
+for (let i = 0; i < blueslaboratory_Array.length; i++) {
     // Reading
-    console.log(blueslaboratory[i], typeof blueslaboratory[i]);
+    console.log(blueslaboratory_Array[i], typeof blueslaboratory_Array[i]);
 
     // Filling types array:
-    types[i] = typeof blueslaboratory[i];
+    types[i] = typeof blueslaboratory_Array[i];
     // types.push(typeof blueslaboratory[i]);
 }
 
@@ -602,30 +658,34 @@ console.log(ages);
 
 
 // continue and break
+console.log('\nContinue and break:');
 
 console.log('\n--- ONLY STRINGS ---');
-for (let i = 0; i < blueslaboratory.length; i++) {
-    // only logging strings:
-    if (typeof blueslaboratory[i] !== 'string') continue;
+for (let i = 0; i < blueslaboratory_Array.length; i++) {
+    // only logging strings: !== 'string' continue
+    if (typeof blueslaboratory_Array[i] !== 'string') continue;
 
-    console.log(blueslaboratory[i], typeof blueslaboratory[i]);
+    console.log(blueslaboratory_Array[i], typeof blueslaboratory_Array[i]);
 }
 
 console.log('\n--- BREAK WITH NUMBER ---');
-for (let i = 0; i < blueslaboratory.length; i++) {
+for (let i = 0; i < blueslaboratory_Array.length; i++) {
     // terminating a loop with a number:
-    if (typeof blueslaboratory[i] === 'number') break;
+    if (typeof blueslaboratory_Array[i] === 'number') break;
 
-    console.log(blueslaboratory[i], typeof blueslaboratory[i]);
+    console.log(blueslaboratory_Array[i], typeof blueslaboratory_Array[i]);
 }
 
 
 
 /////////////////////////////////////////////////////
 // 48. Looping Backwards and Loops in Loops
+/*
+console.log('\n48. Looping Backwards and Loops in Loops');
+
 'use strict';
 
-const blueslaboratory = [
+const blueslaboratory_Array = [
     "Blue's",
     "Laboratory",
     2037 - 1993,
@@ -637,11 +697,12 @@ const blueslaboratory = [
 // 0, 1, ..., 4
 // 4, 3, ..., 0
 
-for (let i = blueslaboratory.length - 1; i >= 0; i--) {
-    console.log(i, blueslaboratory[i]);
+for (let i = blueslaboratory_Array.length - 1; i >= 0; i--) {
+    console.log(i, blueslaboratory_Array[i]);
 }
 
 // A loop within a loop
+console.log('\nA loop within a loop');
 for (let exercise = 1; exercise <= 4; exercise++) {
     console.log(`--------- Starting exercise ${exercise} ---------`)
 
@@ -654,36 +715,39 @@ for (let exercise = 1; exercise <= 4; exercise++) {
 
 /////////////////////////////////////////////////////
 // 49. The while Loop
+/*
+console.log('\n49. The while Loop');
 'use strict';
 
-console.log('\nFor Loop');
+console.log('\nFor Loop:');
 for (let rep = 1; rep <= 5; rep++) {
     console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
 }
 
-console.log('\nWhile Loop');
+console.log('\nWhile Loop:');
 let rep = 1;
 while (rep <= 5) {
     console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
     rep++;
 }
 
-console.log('\nRolling the dice');
+console.log('\nRolling the dice:');
 // Math.random gives us a number between 0-1
 let dice = Math.trunc(Math.random() * 6) + 1;
 // console.log(dice);
 
 while (dice !== 6) {
     console.log(`You rolled a ${dice}`);
-    dice = Math.trunc(Math.random() * 6) + 1;
+    dice = Math.trunc(Math.random() * 6) + 1; // [1, 6]
     if (dice === 6) console.log('Loop is about to end...');
 }
 
 
 
 /////////////////////////////////////////////////////
-*/
-// Coding Challenge #4
+// 50. Coding Challenge #4
+
+console.log('\n50. Coding Challenge #4');
 
 /*
 Let's improve Steven's tip calculator even more, this time using loops!
@@ -721,8 +785,11 @@ for (let i = 0; i < bills.length; i++) {
     totals.push(bills[i] + tips[i]);
 }
 
+console.log('\nBills:');
 console.log(bills);
+console.log('\nTips:');
 console.log(tips);
+console.log('\nTotals:');
 console.log(totals);
 
 
@@ -736,6 +803,6 @@ const calcAverage = function (arr) {
     return avg / arr.length;
 }
 
-console.log(calcAverage(totals));
-console.log(calcAverage(tips));
+console.log('\nAverage Totals:', calcAverage(totals));
+console.log('\nAverage Tips:', calcAverage(tips));
 */

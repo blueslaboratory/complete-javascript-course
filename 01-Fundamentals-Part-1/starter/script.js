@@ -5,6 +5,9 @@ Multi-Line comment
 
 /////////////////////////////////////////////////////
 // 24/02/2025
+
+console.log('\nIntroduction');
+
 let js = 'amazing';
 // if (js === 'amazing') alert('JavaScript is fun!');
 
@@ -31,7 +34,10 @@ let PI = 3.1415
 
 
 /////////////////////////////////////////////////////
-// let, const and var
+// 12. let, const and var
+
+console.log('\n12. let, const and var');
+
 // Declaring variables: let
 let myFirstJob = "Coder"
 let myCurrentJob = "Teacher";
@@ -66,6 +72,7 @@ console.log(typeof null);
 
 /////////////////////////////////////////////////////
 // Declaring variables
+
 let age = 30;
 age = 31;
 
@@ -88,8 +95,12 @@ console.log(lastName);
 
 
 /////////////////////////////////////////////////////
-// Basic Operators
+// 13. Basic Operators
+
+console.log('\n13. Basic Operators');
+
 // Math operators
+console.log('\nMath operators');
 const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2020;
@@ -103,6 +114,7 @@ const lastName = 'Schemdtmann';
 console.log(firstName + ' ' + lastName);
 
 // Assignment operators
+console.log('\nAssignment operators');
 let x = 10 + 5; // 15
 x += 10;        // x = x + 10 = 25
 x *= 4;         // x = x * 4 = 100
@@ -111,6 +123,7 @@ x--;
 console.log(x);
 
 // Comparison operators: >, <, >=, <=
+console.log('\nComparison operators: >, <, >=, <=');
 console.log(ageJonas > ageSarah);
 console.log(ageSarah >= 18);
 
@@ -122,7 +135,9 @@ console.log(now - 1991 > now - 2019);
 
 
 /////////////////////////////////////////////////////
-// Operator Precedence
+// 14. Operator Precedence
+
+console.log('\n14. Operator Precedence');
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
 
 const now = 2037;
@@ -143,7 +158,9 @@ console.log(ageJonas, ageSarah, averageAge);
 
 
 /////////////////////////////////////////////////////
-// CHALLENGE #1
+// 16. CHALLENGE #1
+
+console.log('\n16. CHALLENGE #1');
 /*
 Mark and John are trying to compare their BMI (Body Mass Index), which is calculated using the formula: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter).
 
@@ -171,21 +188,27 @@ console.log('Mark > John:', markHigherBMI);
 
 
 /////////////////////////////////////////////////////
-// Strings and template literals
+// 17. Strings and template literals
+
+console.log('\n17. Strings and template literals');
+
 const firstName = 'Jonas';
 const job = 'teacher';
 const birthYear = 1991;
 const year = 2037;
 
 // Legacy
+console.log('\nLegacy');
 const jonas = "I'm " + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!';
 console.log(jonas);
 
 // ECM6: Template literals ``
+console.log('\nECM6: Template literals ``');
 const jonasNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
 console.log(jonasNew);
 
-// backticks: some people use them always
+// backticks: some people use them always: ``
+console.log('\nBackticks: some people use them always: ``');
 console.log(`Just a regular string...`);
 
 console.log('String with \n\
@@ -199,7 +222,10 @@ lines 2`);
 
 
 /////////////////////////////////////////////////////
-// Taking Decisions: if/else Statements
+// 18. Taking Decisions: if/else Statements
+
+console.log('\n18. Taking Decisions: if/else Statements');
+
 const age = 14;
 const isOldEnough = age >= 18;
 
@@ -230,7 +256,9 @@ console.log(`Century: ${century}`);
 
 
 /////////////////////////////////////////////////////
-// CHALLENGE #2
+// 19. CHALLENGE #2
+
+console.log('\n19. CHALLENGE #2');
 /*
 Use the BMI example from Challenge #1, and the code you already wrote, and improve it:
 
@@ -271,29 +299,34 @@ if (BMIMark > BMIJohn) {
 
 /////////////////////////////////////////////////////
 // 25/02/2025
-// Type conversion and coercion
+// 20. Type conversion and coercion
+
+console.log('\n20. Type conversion and coercion');
+
 // - Type conversion: to manually convert from one type to another
 // - Type coercion: when javascript automatically converts types behind the scenes
 
 // string
-const inputYear = '1991';
+const inputYearString = '1991';
 
 
 // type conversion
+console.log('\nType conversion');
 // number, string
-console.log(Number(inputYear), inputYear);
+console.log(Number(inputYearString), inputYearString);
 // string concatenation
-console.log(inputYear + 18);
+console.log(inputYearString + 18);
 // number concatenation
-console.log(Number(inputYear) + 18);
+console.log(Number(inputYearString) + 18);
 // NaN: Not a Number (truly: invalid number)
-console.log(Number('Jonas'));
+console.log('Number(\'Jonas\'):', Number('Jonas'));
 console.log(typeof NaN);
 // number, string
 console.log(23, String(23));
 
 
 // type coercion
+console.log('\nType coercion');
 console.log('I am ' + 23 + ' years old');
 // idem to
 console.log('I am ' + '23' + ' years old');
@@ -317,7 +350,7 @@ console.log('10' - '4' - '3' - 2 + '5'); // 1 + '5'
 // There are 5 falsy values: 0, '', undefined, null, NaN
 // Conversion to Boolean is always implicit: type coercion
 
-console.log("Falsy Values:")
+console.log("\nFalsy Values:")
 console.log(Boolean(0));
 console.log(Boolean(''));
 console.log(Boolean(undefined));
@@ -330,6 +363,7 @@ console.log(Boolean({}));
 
 
 // Falsy coercion:
+console.log('\nFalsy coercion');
 const money = 30;
 if (money) {
     console.log("Don't spend it all D:");
@@ -339,6 +373,7 @@ if (money) {
 
 
 // bug, when height = 0 it is still defined:
+console.log('\nBug with if(0): falsy value');
 let height = 0;
 if (height) {
     console.log("YAY! Height is defined");
@@ -351,14 +386,17 @@ if (height) {
 /////////////////////////////////////////////////////
 // 22. Equality Operators: == vs ===
 
+console.log('\n22. Equality Operators: == vs ===');
+
 // === strict equality operator: it does not perform type coercion
-if (18 === 18) console.log("(Strict Operator), Congratulations! You just became an adult 👌")
+if (18 === 18) console.log("Strict Operator === \nCongratulations! You just became an adult 👌")
 
 // == loose equality operator: it performs type coercion
 // Avoid using the loose equality operator (==) as much as you can, pretend it doesn't even exist
-if ('18' == 18) console.log("(Loose Operator), type coercion :(")
+if ('18' == 18) console.log("Loose Operator == \ntype coercion :(")
 
 
+console.log('\nFavourite number:');
 const favourite = Number(prompt("What's your favourite number?"));
 console.log(favourite);
 console.log(typeof favourite);
@@ -379,6 +417,8 @@ if (favourite !== 13) console.log('Why not 13?');
 
 /////////////////////////////////////////////////////
 // 23. Boolean logic & Logical Operators
+
+console.log('\n23. Boolean logic & Logical Operators');
 
 const hasDriversLicense = true; // A
 const hasGoodVision = true; // B
@@ -407,8 +447,9 @@ if (hasGoodVision && hasGoodVision && !isTired) {
 
 
 /////////////////////////////////////////////////////
-// Coding Challenge #3
+// 25. Coding Challenge #3
 
+console.log('/n25. Coding Challenge #3');
 /*
 There are two gymnastics teams, Dolphins and Koalas. They compete against each other 3 times. The winner with the highest average score wins the a trophy!
 
@@ -446,6 +487,8 @@ if (scoreDolphins > scoreKoalas && scoreDolphins >= 100) {
 
 /////////////////////////////////////////////////////
 // 26. The Switch Statement
+
+console.log('\n26. The Switch Statement: ===');
 
 let day = prompt('1. Day of the week: ');
 
@@ -498,6 +541,8 @@ if (day === 'monday') {
 /////////////////////////////////////////////////////
 // 27. Statements and Expressions
 
+console.log('\n27. Statements and Expressions');
+
 // Expression: words that make up the sentences
 // 3 + 4
 // 1991
@@ -523,8 +568,12 @@ console.log(`I'm ${2037 - 1991} years old ${expression}`);
 /////////////////////////////////////////////////////
 // 28. The conditional (ternary) operator
 
+console.log('\n28. The conditional (ternary) operator');
+
 const age = 17;
-age >= 18 ? console.log('I like to drink beer 🍻') : console.log('I like to drink water 🌊💧');
+age >= 18 ? 
+    console.log('I like to drink beer 🍻') : 
+    console.log('I like to drink water 🌊💧');
 
 // an expression that produces a value:
 const drink = age >= 18 ? 'beer 🍻' : 'water 🌊💧';
@@ -546,7 +595,9 @@ console.log(`I like to drink ${age >= 18 ? 'beer 🍻' : 'water 🌊💧'}`)
 
 
 /////////////////////////////////////////////////////
-// Coding Challenge #4
+// 29. Coding Challenge #4
+
+console.log('\n29. Coding Challenge #4');
 
 /*
 Steven wants to build a very simple tip calculator for whenever he goes eating in a resturant. In his country, it's usual to tip 15% if the bill value is between 50 and 300. If the value is different, the tip is 20%.
@@ -574,6 +625,10 @@ console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bil
 
 /////////////////////////////////////////////////////
 // 30. JavaScript Releases: ES5, ES6+ and ESNext
+/*
+console.log('\n30. JavaScript Releases: ES5, ES6+ and ESNext');
+
 // Teoria e historia de JavaScript, es backwards compatible para no romper la web, pero no es forwards compatible
 
 // https://compat-table.github.io/compat-table/es6/
+*/

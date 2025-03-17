@@ -7,6 +7,9 @@ Multi-Line comment
 /////////////////////////////////////////////////////
 // 27/02/2025
 // 55. Setting up Prettier and VS Code
+
+console.log('\n55. Setting up Prettier and VS Code');
+
 // https://prettier.io/docs/options.html
 
 // Remember, we're gonna use strict mode in all scripts now!
@@ -21,13 +24,15 @@ const calcAge = birthYear => 2037 - birthYear;
 // - cl for console.log();
 console.log(x);
 
-// Extension: TODO Highlight: NEW, FIX, IMPORTANT, BUG, TODO
+// Extension: TODO Highlight: NEW, FIX, DEBUGGING, BUG, TODO
 // File --> Preferences --> Settings: Open Settings (JSON)
 
 
 
 /////////////////////////////////////////////////////
 // 56. Installing Node.js and Setting Up a Dev Environment
+
+console.log('\n56. Installing Node.js and Setting Up a Dev Environment');
 // Extension: Live Server
 
 
@@ -35,10 +40,14 @@ console.log(x);
 /////////////////////////////////////////////////////
 // 57. Learning to Code (See: 57. Pit of despair.png)
 
+console.log('\n57. Learning to Code (See: 57. Pit of despair.png)');
+
 
 
 /////////////////////////////////////////////////////
 // 58. How to Think Like a Developer: Become a Problem Solver!
+
+console.log('\n58. How to Think Like a Developer: Become a Problem Solver!');
 
 // Step 1:
 // Make sure you 100% understand the problem. Ask the right questions, get a clear view of the problem
@@ -53,6 +62,9 @@ console.log(x);
 
 /////////////////////////////////////////////////////
 // 59. Using Google, StackOverflow and MDN
+
+console.log('\n59. Using Google, StackOverflow and MDN');
+
 // (Skipped because they are outdated with LLMs?)
 // MDN: https://developer.mozilla.org/en-US/
 // You can read the final script.js for this section
@@ -61,11 +73,14 @@ console.log(x);
 
 /////////////////////////////////////////////////////
 // 60. Debugging (Fixing Errors)
+
+console.log('\n60. Debugging (Fixing Errors)');
+
 // Shows how to use the browser debugger 8:00
 // a) IDENTIFY THE BUG
 // b) FIND THE BUG
-*/
-/*
+
+
 'use strict';
 
 
@@ -84,11 +99,11 @@ const measureKelvin = function() {
     //ct
     console.table(measurement);
     // cl
-    // console.log(measurement.value);
+    console.log('Log:', measurement.value);
     // cw
-    // console.warn(measurement.value);
+    console.warn('Warn:', measurement.value);
     // ce
-    // console.error(measurement.value);
+    console.error('Error:', measurement.value);
 
     const kelvin = measurement.value + 273;
     return kelvin;
@@ -116,16 +131,20 @@ const calcTempAmplitudeBug = function (t1, t2) {
     }
     console.log(max, min);
     return max - min;
-  };
-  const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 0, 5]);
-  // A) IDENTIFY
-  console.log(amplitudeBug);
+};
+ 
+const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 0, 5]);
+
+// A) IDENTIFY
+console.log('max - min:', amplitudeBug);
 
 
 
 /////////////////////////////////////////////////////
 // 62. CHALLENGE #1
-*/
+
+console.log('\n62. CHALLENGE #1');
+
 /*
 Given an array of forecasted maximum temperatures, the thermometer displays a string with these temperatures.
 
@@ -138,6 +157,7 @@ Use the problem-solving framework: Understand the problem and break it up into s
 TEST DATA 1: [17, 21, 23]
 TEST DATA 2: [12, 5, -5, 0, 4]
 */
+/*
 "use strict";
 
 const test_data_1 = [17, 21, 23];
@@ -164,6 +184,8 @@ printForecast(test_data_2)
 /////////////////////////////////////////////////////
 // 63. The Rise of AI Tools (ChatGPT, Copilot, Cursor AI, etc.)
 
+console.log('\n63. The Rise of AI Tools (ChatGPT, Copilot, Cursor AI, etc.)');
+
 // 1. Make sure you 100% understand the problem. Ask questions
 // 2. Choose the AI and give it an specific prompt and enough context
 // 3. AI generates the solution code
@@ -183,9 +205,13 @@ printForecast(test_data_2)
 
 /////////////////////////////////////////////////////
 // 64. Solving CHALLENGE #2 With AI
-
+*/
+console.log('\n64. Solving CHALLENGE #2 With AI');
 /*
-Let's say you're building a time tracking application for freelancers. At some point in building this app, you need a function that receives daily work hours for a certain week, and returns:
+Let's say you're building a time tracking application for freelancers. 
+At some point in building this app, you need a function that receives 
+daily work hours for a certain week, and returns:
+
 1. Total hours worked
 2. Average daily hours (round to one decimal place)
 3. The day with the most hours worked (assume monday is day 0 in the array)
@@ -196,7 +222,9 @@ TEST DATA: [7.5, 8, 6.5, 0, 8.5, 4, 0]
 */
 
 // Written by ChatGPT: Copied from the solutions
+
 function analyzeWorkWeek(dailyHours) {
+
   const daysOfWeek = [
     'Monday',
     'Tuesday',
@@ -214,6 +242,12 @@ function analyzeWorkWeek(dailyHours) {
 
   // Calculate total hours worked
   let totalHours = dailyHours.reduce((sum, hours) => sum + hours, 0);
+  // .reduce(callback, initialValue) is used to accumulate all values in an array into a single value.
+  // sum is the accumulator that starts with 0 bc of the 0 at the end
+  // hours is each element in the dailyHours array.
+  // let dailyHours = [8, 6, 0, 7, 5, 0, 4];
+  // console.log(totalHours); // Output: 30
+
   // Equivalent:
   // totalHours = 0;
   // for (let hours of dailyHours) {
@@ -236,6 +270,12 @@ function analyzeWorkWeek(dailyHours) {
   // Count the number of days worked
   // Gets the array and filters it to another array.length
   const daysWorked = dailyHours.filter(hours => hours > 0).length;
+  // .filter(callback) creates a new array with only the elements that pass a condition
+  // hours => hours > 0 means: "Keep only the values greater than 0."
+  // .length gives the number of days where hours worked was greater than 0
+  // let dailyHours = [8, 6, 0, 7, 5, 0, 4];
+  // console.log(daysWorked); // Output: 5
+
 
   // Check if the week was full-time (35 hours or more)
   const isFullTime = totalHours >= 35;
