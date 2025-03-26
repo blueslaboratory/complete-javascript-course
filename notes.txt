@@ -161,3 +161,9 @@ INTERESTING:
 138. The call and apply Methods
 139. The bind Method
 142. Closure
+
+
+
+20/03/2025
+151. PROJECT: "Bankist" App
+Starts here, seems interesting but too time consuming: JUMPED (for now)
