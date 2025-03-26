@@ -494,7 +494,7 @@ calcAverageHumanAge(testData1);
 
 
 /////////////////////////////////////////////////
-*/
+
 // 160. The Magic of Chaining Methods
 console.log('\n160. The Magic of Chaining Methods');
 
