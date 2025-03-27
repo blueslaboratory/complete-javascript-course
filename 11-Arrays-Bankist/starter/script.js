@@ -494,7 +494,7 @@ calcAverageHumanAge(testData1);
 
 
 /////////////////////////////////////////////////
-
+/*
 // 160. The Magic of Chaining Methods
 console.log('\n160. The Magic of Chaining Methods');
 
@@ -515,3 +515,4 @@ const totalDepositsUSD = movements
     .reduce((accumulator, currentValue, index, array) => accumulator + currentValue, 0);
 
 console.log(totalDepositsUSD);
+*/

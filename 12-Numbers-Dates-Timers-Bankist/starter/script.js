@@ -251,3 +251,121 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+
+
+/////////////////////////////////////////////////////
+// 26/03/2025
+// 184. Creating Dates
+/*
+console.log('\n184. Creating Dates');
+
+console.log('\nCreating a date');
+const now = new Date();
+console.log(now);
+
+console.log(new Date('Aug 02 2020 18:05:41'));
+console.log(new Date('December 25, 2014'));
+
+console.log(account1.movementsDates[0]);
+console.log(new Date(account1.movementsDates[0]));
+
+
+// year, month (0 january/11 december), day, hour, minute, second
+console.log('\nyear, month (0 january/11 december), day, hour, minute, second');
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+
+// JS autocorrects the day
+console.log('\nJS autocorrects the day');
+console.log(new Date(2037, 10, 31));
+
+// Date after X milliseconds
+console.log('\nDate after X milliseconds');
+console.log(new Date(7 * 24 *60 * 60 * 1000));
+
+
+// These dates that we have created are a special type of objects
+console.log('\nWorking with dates');
+const future = new Date(2037, 0, 21, 11, 23);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log('Day of the week:', future.getDay());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+
+console.log('\nSeconds since January 1st 1970:');
+console.log(future.getTime());
+console.log(new Date(2116146180000));
+
+
+console.log('\nNow timestamp:');
+console.log(Date.now());
+
+
+console.log('\nSet methods:');
+// They also perform autocorrection
+future.setFullYear(2040);
+console.log(future);
+
+
+
+/////////////////////////////////////////////////////
+// 190. Timers: setTimeout and setInterval
+*/
+console.log('\n190. Timers: setTimeout and setInterval');
+// setTimeout: runs just once 
+// setInterval: keeps running forever until we stop it
+
+
+// setTimeout
+console.log('\n*** setTimeout ***');
+
+// Normal: 1.5s
+setTimeout(function() {
+  console.log('Your pizza 🍕 is on the way!')
+}, 1000);
+
+// Arrow function: 3s
+setTimeout(() => console.log('Here is your pizza 🍕'), 2000)
+
+// Asynchronous JS:
+// setTimeout does not pause the execution of the code, the function is called on the background
+console.log('Waiting...\n');
+
+// Arrow function: 4s (with arguments)
+setTimeout((ing1, ing2) => 
+  console.log(`EXTRA ingredients: ${ing1}, ${ing2}`), 
+2500, 'olives', 'ham')
+
+
+// Cancelling a timeout before time
+setTimeout(() => console.log('\nCancelling the setTimeout before time'), 3000)
+const ingredients = ['tomato', 'spinach']
+
+const pizzaTimer = setTimeout(function(ing1, ing2){
+  console.log(`PIZZA with ${ing1} and ${ing2} 🍕`);
+}, 4000);
+
+if (ingredients.includes('spinach')) {
+  clearTimeout(pizzaTimer) 
+  setTimeout(() => console.log('Timeout was cancelled!'), 4100)
+}
+  
+
+// setInterval
+setTimeout(() => console.log('\n*** setInterval ***'), 4200);
+
+// This function is executed every 4.4s
+const dateInterval = setInterval(function() {
+  const now = new Date();
+  console.log(now);
+}, 4400);
+
+
+setTimeout(function () {
+  clearInterval(dateInterval);
+  console.log('\nDate interval was cancelled after 8.8s');
+}, 8800);
