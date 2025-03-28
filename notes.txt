@@ -167,3 +167,8 @@ INTERESTING:
 20/03/2025
 151. PROJECT: "Bankist" App
 Starts here, seems interesting but too time consuming: JUMPED (for now)
+
+
+
+27/03/2025
+195. How the DOM Really Works

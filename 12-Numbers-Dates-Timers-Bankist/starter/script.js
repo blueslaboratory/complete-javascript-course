@@ -313,8 +313,9 @@ console.log(future);
 
 
 /////////////////////////////////////////////////////
+// 27/03/2025
 // 190. Timers: setTimeout and setInterval
-*/
+
 console.log('\n190. Timers: setTimeout and setInterval');
 // setTimeout: runs just once 
 // setInterval: keeps running forever until we stop it
